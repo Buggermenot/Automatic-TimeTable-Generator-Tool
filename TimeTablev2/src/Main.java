@@ -15,7 +15,9 @@ import java.util.Collections;
 *
 * -- Bugs --
 * 1.Some known bugs are due to the group system where there are more than required classes associated with a batch also causing clashes within a block.
-* 2.
+* 2.System tends to keep focusing purely on lectures which shows that the module solving the group algorithm is not working as needed.
+* 3.There seems to be almost no classes scheduled towards the end of week. This is again a result of the group algorithm.
+* 4.Uniform distribution of the schedule has to be worked upon.
 */
 
 public class Main {
