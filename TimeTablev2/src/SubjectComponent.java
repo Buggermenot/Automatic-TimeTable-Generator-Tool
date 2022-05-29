@@ -9,16 +9,17 @@ public class SubjectComponent implements Comparable<SubjectComponent> {
             PRACTICAL_CSE = 2,
             PRACTICAL_PHY = 3;
 
-    int day_counter = 0;                            // stores previous day
-    int time_counter = 0;
-    int block_counter = 0;
-    int type;
-    final char[] types = {'L', 'T', 'P', 'Q'};                                    // L -> Lecture, P -> Practical, T -> Tutorial.
+    int day_counter = 0;                            // stores day when the class was last held in the week
+    int time_counter = 0;                           // consecuitve length of class - each block = 1;
+    int block_counter = 0;                          // last block in which the class was held.
+    int type;                                       // type of subject comp - Lec, Tut, Prac, etc.
+    
+    final char[] types = {'L', 'T', 'P', 'Q'};                              // L -> Lecture, P -> Practical, T -> Tutorial.
 
     int[] allowed_hours;                                                    // Allowed time slots per subject component. 2, 1, or 0.
     String subject;                                                         // Subject taught
     int SubjectID;
-    static int PHY = 0,
+    static int PHY = 0,                                                     //
         MATH = 1,
         DMS = 2,
         DD = 3,
