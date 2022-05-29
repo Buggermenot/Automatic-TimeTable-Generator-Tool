@@ -2,6 +2,21 @@ import javax.lang.model.type.NullType;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+/* 
+* This is the final submission for the Hackathon Event - Hackaccino conducted at Bennett University, Greater Noida, India.
+* 
+* Team Name: Ctrl Alt Elite.
+*
+* The program is an attempt to create an automatic timetable generator tool for the purpose of the university and has been made specific to the
+* batches of CSE 1st year students. The code however can be altered easily to adhere to practically any similar use case.
+* The program so far only requires input with the number of batches and the rooms available.
+* Subjects can also be changed as per requirement but may break the code if not done properly.
+* 
+*
+* -- Bugs --
+* 1.Some known bugs are due to the group system where there are more than required classes associated with a batch also causing clashes within a block.
+* 2.
+*/
 
 public class Main {
 
@@ -39,7 +54,7 @@ public class Main {
             } catch (Exception e) {
                 break;
             } finally {
-                groups[g_no] = new Group(groupBatches);
+                groups[g_no] = new Group(groupBatches);                                                             // Creates groups of batches for Lectures.
             }
         }
 
@@ -49,10 +64,10 @@ public class Main {
 
             Rooms R = new Rooms();
 
-            Collections.sort(batches, Collections.reverseOrder());
+            Collections.sort(batches, Collections.reverseOrder());                                                  // Sorts batches based on number of hours left to teach.
 
             // Allotments
-            String[][] allotments = new String[4][];
+            String[][] allotments = new String[4][];                                                                // Array of all rooms types and their corresponding rooms.
             allotments[LECTURE] = new String[4];
             allotments[TUTORIAL] = new String[10];
             allotments[PRACTICAL_CSE] = new String[6];
@@ -98,7 +113,10 @@ public class Main {
                                 } else {                                                                                // Adds repetition.
                                     batch.subjectLectures.get(counter).block_counter++;
                                 }
-
+                                
+/* ---------Contains Broken Code resulting in incorrect output. Shall edit later.------*/
+                                
+                                //Debug Code.
 //                                System.out.println(day + ", " + block);
 //                                System.out.println(batch);
 //                                System.out.println(batch.subjectLectures.get(counter).subject);
@@ -156,6 +174,7 @@ public class Main {
                     }
                 }
             }
+            
             // All Room Allotments for the given block
 
             System.out.println("Day: " + day + " Block: " + block);
@@ -171,20 +190,22 @@ public class Main {
 
             block++;
         }
-//        for (Batch batch : batches) {
-//            System.out.println(batch + ":" + batch.subjectComponents);
-//            System.out.println(batch + ":" + batch.subjectLectures);
-//        }
-//
-//        for (Batch batch : batches) {
-//            for (int i = 0; i < 5; i++) {
-//                System.arraycopy(batch.TimeTable, i * 8, batch.TimeTable2[i], 0, 8);
-//            }
-//            System.out.println("Timetable for " + batch + " :\n");
-//            for (String[] s : batch.TimeTable2) {
-//                System.out.println(Arrays.toString(s));
-//            }
-//            System.out.println('\n');
-//        }
+    
+        // Displays Time Tables for all batches
+       for (Batch batch : batches) {
+           System.out.println(batch + ":" + batch.subjectComponents);
+           System.out.println(batch + ":" + batch.subjectLectures);
+       }
+
+       for (Batch batch : batches) {
+           for (int i = 0; i < 5; i++) {
+               System.arraycopy(batch.TimeTable, i * 8, batch.TimeTable2[i], 0, 8);
+           }
+           System.out.println("Timetable for " + batch + " :\n");
+           for (String[] s : batch.TimeTable2) {
+               System.out.println(Arrays.toString(s));
+           }
+           System.out.println('\n');
+       }
     }
 }
